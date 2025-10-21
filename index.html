@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Tembak Sudut — Trigonometria Quest (Embed v4)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER ALWAYS VISIBLE (embed-friendly) -->
+  <header class="main-header" role="banner">
+    <div class="logo">TQ</div>
+    <div>
+      <h1 class="game-title">Tembak Sudut — Trigonometria Quest</h1>
+      <p class="lead">Game Interaktif Kelas XI | Latihan Sin, Cos, Tan pada Unit Circle</p>
+    </div>
+  </header>
+
+  <!-- APP -->
+  <div class="app" role="main" aria-labelledby="game-title">
+    <div class="layout">
+      <main class="card">
+        <div class="play-area" id="playArea">
+          <div class="hud">
+            <div class="stat">Level: <span id="level">1</span></div>
+            <div class="stat">Skor: <strong id="score">0</strong></div>
+            <div class="stat">Sisa Soal: <span id="remaining">10</span></div>
+          </div>
+
+          <div class="circle-wrap" aria-hidden="true">
+            <div class="unit-circle" id="unitCircle">
+              <!-- quadrant overlays -->
+              <div class="quad q1"></div>
+              <div class="quad q2"></div>
+              <div class="quad q3"></div>
+              <div class="quad q4"></div>
+              <!-- axes -->
+              <div class="axis x"></div>
+              <div class="axis y"></div>
+              <!-- visuals -->
+              <div class="angle-line" id="angleLine"></div>
+              <div class="point" id="point"></div>
+              <div class="angle-label" id="angleLabel">0°</div>
+            </div>
+          </div>
+
+          <div style="text-align:center;width:100%">
+            <div class="question" id="questionText">Tekan Mulai untuk memulai permainan</div>
+            <div class="answers" id="answers" aria-live="polite"></div>
+          </div>
+
+          <div style="display:flex;gap:12px;margin-top:12px">
+            <button class="btn primary" id="startBtn">Mulai</button>
+            <button class="btn ghost" id="hintBtn">Petunjuk</button>
+            <button class="btn ghost" id="skipBtn">Lewati</button>
+          </div>
+        </div>
+      </main>
+
+      <aside class="side" aria-label="Kontrol dan Statistik">
+        <div class="panel">
+          <strong>Instruksi Singkat</strong>
+          <div style="font-size:14px;color:var(--muted)">Pilih jawaban benar secepat mungkin. Gunakan unit circle & kuadran sebagai panduan.</div>
+        </div>
+
+        <div class="panel">
+          <strong>Statistik</strong>
+          <div style="margin-top:8px;color:var(--muted);font-size:13px">
+            <div>Benar: <span id="correctCount">0</span></div>
+            <div>Salah: <span id="wrongCount">0</span></div>
+            <div>Total Poin: <span id="accum">0</span></div>
+          </div>
+        </div>
+
+        <!-- SETTING SOAL: VISIBLE DI SINI -->
+        <div class="panel">
+          <strong>Setting Soal</strong>
+          <div style="margin-top:8px;display:flex;flex-direction:column;gap:8px">
+            <label>Jumlah Soal:
+              <select id="qCount">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+              </select>
+            </label>
+
+            <label>Jenis Fungsi:
+              <select id="typeSelect">
+                <option value="sin">sin</option>
+                <option value="cos">cos</option>
+                <option value="tan">tan</option>
+                <option value="mix">campur</option>
+              </select>
+            </label>
+
+            <button class="btn primary" id="applySettings">Terapkan</button>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <div id="hintRoot" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
