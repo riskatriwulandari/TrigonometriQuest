@@ -148,6 +148,9 @@
       showHint(`Jawaban benar: <strong>${correctStr}</strong><br>Ingat sudut istimewa & tanda kuadran.`);
     }
 
+    score = Math.round((correct / totalQuestions) * 100);
+    accumScore = score;
+    
     scoreEl.textContent = score;
     correctCount.textContent = correct;
     wrongCount.textContent = wrong;
